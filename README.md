@@ -5,7 +5,9 @@ git clone https://github.com/MarkIsaev/Isaev_221_332_exam.git
 
 Загрузка в репозиторий файлов:
 cd Isaev_221_332_exam
+
 git add *
+
 git commit -am "first commit"
 
 Создание новой ветки:
