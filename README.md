@@ -1,1 +1,15 @@
-# Exam_testt
+# Команда для клонирования репозитория
+git clone https://github.com/MarkIsaev/Isaev_221_332_exam.git
+
+# Загрузка в репозиторий файлов
+cd Isaev_221_332_exam
+git add *
+git commit -am "first commit"
+
+# Создание новой ветки
+git checkout -b 221_332_Isaev
+git push https://github.com/MarkIsaev/Isaev_221_332_exam.git 221_332_Isaev
+
+# Слияние с веткой main
+git checkout main
+git merge 221_332_Isaev
