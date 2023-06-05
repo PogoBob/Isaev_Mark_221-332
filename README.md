@@ -27,3 +27,11 @@
 ###### git checkout main
 
 ###### git merge 221_332_Isaev
+
+
+# Команды для запуска Dockerfile
+
+
+###### docker build -t test .
+
+###### docker run  --name testtt -p 33333:33333 -t -i test
