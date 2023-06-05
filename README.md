@@ -1,9 +1,9 @@
 # Команды для работы с гитом
 
 
-Команда для клонирования репозитория:
+###Команда для клонирования репозитория:
 
-git clone https://github.com/MarkIsaev/Isaev_221_332_exam.git
+######git clone https://github.com/MarkIsaev/Isaev_221_332_exam.git
 
 
 Загрузка в репозиторий файлов:
