@@ -6,24 +6,24 @@
 ###### git clone https://github.com/MarkIsaev/Isaev_221_332_exam.git
 
 
-Загрузка в репозиторий файлов:
+#### Загрузка в репозиторий файлов:
 
-cd Isaev_221_332_exam
+###### cd Isaev_221_332_exam
 
-git add *
+###### git add *
 
-git commit -am "first commit"
-
-
-Создание новой ветки:
-
-git checkout -b 221_332_Isaev
-
-git push https://github.com/MarkIsaev/Isaev_221_332_exam.git 221_332_Isaev
+###### git commit -am "first commit"
 
 
-Слияние с веткой main:
+#### Создание новой ветки:
 
-git checkout main
+###### git checkout -b 221_332_Isaev
 
-git merge 221_332_Isaev
+###### git push https://github.com/MarkIsaev/Isaev_221_332_exam.git 221_332_Isaev
+
+
+#### Слияние с веткой main:
+
+###### git checkout main
+
+###### git merge 221_332_Isaev
