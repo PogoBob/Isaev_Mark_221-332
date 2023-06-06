@@ -1,4 +1,4 @@
-#include "../server/func_for_server.h"
+#include "../server/func_for_server.cpp"
 #include <QtTest>
 
 // add necessary includes here
@@ -28,52 +28,53 @@ Isaev_221_332_Test::~Isaev_221_332_Test()
 
 void Isaev_221_332_Test::test_case1()
 {
-    QString params1 = "square@1,1@3,7@5,10@6,3@4,1";
-    QCOMPARE(calculatePerimeter(parsing(params1), ""), 32.0);
-    QString params2 = "square@1,2@2,3@4,5";
-    QCOMPARE(calculatePerimeter(params2), 2.0);
-    QString params3 = "perimeter@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeter(params3), 10.472136);
-    QString params4 = "perimeter@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeter(params4), 12.675);
-    QString params5 = "area@1,1@3,7@5,10@6,3@4,1";
-    QCOMPARE(calculatePerimeter(params5), 30.0);
-    QString params6 = "area@1,2@2,3@4,5";
-    QCOMPARE(calculatePerimeter(params6), 0.5);
-    QString params7 = "area@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeter(params7), 0.0);
-    QString params8 = "area@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeter(params8), 8.5);
-    QString params9 = "perimeter@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeter(params9), 10.472136);
-    QString params10 = "perimeter@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeter(params10), 12.675);
+    QTcpSocket a;
+    QString params1 = "perimeter@1,1@3,7@5,10@6,3@4,1";
+    QCOMPARE(parsing(params1, a).toDouble(), 32.0);
+    QString params2 = "perimeter@1,1@3,4@5,2";
+    QCOMPARE(parsing(params2, a).toDouble(), 9.61577310586);
+    QString params3 = "perimeter@1,1@5,1@5,3@1,3";
+    QCOMPARE(parsing(params3, a).toDouble(), 12.0);
+    QString params4 = "perimeter@2,3@8,3@8,9@2,9";
+    QCOMPARE(parsing(params4, a).toDouble(), 24.0);
+    QString params5 = "perimeter@3,1@8,1@8,6";
+    QCOMPARE(parsing(params5, a).toDouble(), 17.1527767793);
+    QString params6 = "perimeter@5,5@3";
+    QCOMPARE(parsing(params6, a).toDouble(), 18.8495559215);
+    QString params7 = "perimeter@2,2@5,2@5,5@2,5";
+    QCOMPARE(parsing(params7, a).toDouble(), 12.0);
+    QString params8 = "perimeter@1,1@9,1@9,5@1,5";
+    QCOMPARE(parsing(params8, a).toDouble(), 16.0);
+    QString params9 = "perimeter@1,1@5,1@3,4";
+    QCOMPARE(parsing(params9, a).toDouble(), 10.9393398282);
+    QString params10 = "perimeter@7,8@4.5";
+    QCOMPARE(parsing(params10, a).toDouble(), 28.2743338823);
 }
 
 void Isaev_221_332_Test::test_case2()
 {
-    QString params1 = "area@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeterOrArea(params1), 0.0);
-    QString params2 = "area@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeterOrArea(params2), 8.5);
-    QString params3 = "perimeter@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeterOrArea(params3), 10.472136);
-    QString params4 = "perimeter@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeterOrArea(params4), 12.675);
-    QString params5 = "square@1,1@3,7@5,10@6,3@4,1";
-    QCOMPARE(calculatePerimeterOrArea(params5), 32.0);
-    QString params6 = "square@1,2@2,3@4,5";
-    QCOMPARE(calculatePerimeterOrArea(params6), 2.0);
-    QString params7 = "square@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeterOrArea(params7), 0.0);
-    QString params8 = "square@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeterOrArea(params8), 0.0);
-    QString params9 = "perimeter@1,2@3,4@5,6";
-    QCOMPARE(calculatePerimeterOrArea(params9), 10.472136);
-    QString params10 = "perimeter@2,3@4,6@8,9";
-    QCOMPARE(calculatePerimeterOrArea(params10), 12.675);
+    QTcpSocket a;
+    QString params1 = "square@1,1@3,7@5,10@6,3@4,1";
+    QCOMPARE(parsing(params1, a).toDouble(), 32.0);
+    QString params2 = "square@1,1@3,4@5,2";
+    QCOMPARE(parsing(params2, a).toDouble(), 9.61577310586);
+    QString params3 = "square@1,1@5,1@5,3@1,3";
+    QCOMPARE(parsing(params3, a).toDouble(), 12.0);
+    QString params4 = "square@2,3@8,3@8,9@2,9";
+    QCOMPARE(parsing(params4, a).toDouble(), 24.0);
+    QString params5 = "square@3,1@8,1@8,6";
+    QCOMPARE(parsing(params5, a).toDouble(), 17.1527767793);
+    QString params6 = "square@5,5@3";
+    QCOMPARE(parsing(params6, a).toDouble(), 18.8495559215);
+    QString params7 = "square@2,2@5,2@5,5@2,5";
+    QCOMPARE(parsing(params7, a).toDouble(), 12.0);
+    QString params8 = "square@1,1@9,1@9,5@1,5";
+    QCOMPARE(parsing(params8, a).toDouble(), 16.0);
+    QString params9 = "square@1,1@5,1@3,4";
+    QCOMPARE(parsing(params9, a).toDouble(), 10.9393398282);
+    QString params10 = "square@7,8@4.5";
+    QCOMPARE(parsing(params10, a).toDouble(), 28.2743338823);
 }
-
 
 QTEST_APPLESS_MAIN(Isaev_221_332_Test)
 
